@@ -2,11 +2,10 @@ const { Book, User } = require('../models');
 
 const resolvers = {
     Query: {
-        book: async () => {
-            return Book.find({});
-        },
-        me: async () => {
-            return User.find();
+        me: async (parent, args, context) => {
+            if (context.user) {
+                return User.findOne({ _id: context.user._id }).populate('books');
+            }
         },
     },
     Mutation: {
@@ -15,7 +14,7 @@ const resolvers = {
 
         },
         // creates User and generates Auth token
-        addUser: async () => {
+        addUser: async (parent, { username, email }) => {
 
         },
         // saves Book to signed in User's page
