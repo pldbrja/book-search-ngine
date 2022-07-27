@@ -1,5 +1,6 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { Book, User } = require('../models');
+const { signToken } = require('../utils/auth');
 
 const resolvers = {
     Query: {
@@ -59,7 +60,7 @@ const resolvers = {
                 );
                 return book;
             }
-            throw new AuthenticationError('Please be logged in to perform this action.')
+        throw new AuthenticationError('Please be logged in to perform this action.')
         },
     }
 }
