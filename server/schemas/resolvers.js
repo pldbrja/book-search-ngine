@@ -36,12 +36,30 @@ const resolvers = {
             return { token, user };
         },
         // saves Book to signed in User's page
-        saveBook: async () => {
-
+        saveBook: async ( parent, { userId }, context) => {
+            if (context.user) {
+                const book = await User.findOneAndUpdate(
+                    { _id: userId },
+                    { $addToSet: { savedBooks: body } },
+                    { new: true, runValidators: true }
+                );
+                return book;
+            }
+            throw new AuthenticationError('Please be logged in to perform this action.')
         },
         // removes Book from User's page
-        removeBook: async () => {
-
+        removeBook: async (parent, { userId, bookId }) => {
+            if (context.user) {
+                const book = await User.findOneAndUpdate(
+                    { _id: userId },
+                    { $pull: { savedBooks: { _id: bookId }  
+                        } 
+                    },
+                    { new: true }
+                );
+                return book;
+            }
+            throw new AuthenticationError('Please be logged in to perform this action.')
         },
     }
 }
