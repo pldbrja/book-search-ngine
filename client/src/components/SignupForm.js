@@ -12,7 +12,7 @@ const SignupForm = () => {
   const [validated] = useState(false);
   // set state for alert
   const [showAlert, setShowAlert] = useState(false);
-
+  // mutation ADD_USER to replace the createUser function
   const [addUser, { error, data }] = useMutation(ADD_USER);
 
   const handleInputChange = (event) => {
@@ -41,6 +41,7 @@ const SignupForm = () => {
       // console.log(user);
       // Auth.login(token);
 
+      // creates User from form data which is referenced during the Auth process
       const { data } = await addUser({
         variables: { ...userFormData },
       });
@@ -51,6 +52,7 @@ const SignupForm = () => {
       setShowAlert(true);
     }
 
+    // clears form
     setUserFormData({
       username: '',
       email: '',
