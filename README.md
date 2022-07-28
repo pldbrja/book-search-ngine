@@ -8,11 +8,7 @@ Using a premade book search engine, this assignment was to refactor it from a RE
 
 For documentation and full accessibility to the original code, none of the original code has been removed.
 
-All sections with old code will have commentary.
-
-## Bugs
-
-Due to an error with the server and GraphQL setup, the requests do not go through and a 500 error is returned on any POST request to the database.
+All old code has been removed to make it easier to read, however the original comments have been left in tact if the component it was with was not deleted.
 
 ## Usage
 
