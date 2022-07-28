@@ -12,7 +12,7 @@ All sections with old code will have commentary.
 
 ## Bugs
 
-Due to an error on my own localhost, there is a chance that running the application on a controlled environment will return POST errors from the Apollo Server.
+Due to an error with the server and GraphQL setup, the requests do not go through and a 500 error is returned on any POST request to the database.
 
 ## Usage
 
