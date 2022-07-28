@@ -11,7 +11,7 @@ const resolvers = {
         },
     },
     Mutation: {
-        // uses Auth token generated on addUser to login to engine
+        // uses Auth token generated on addUser to login
         login: async (parent, { email, password }) => {
             const user = await User.findOne({ email });
 
