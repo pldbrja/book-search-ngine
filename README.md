@@ -19,3 +19,5 @@ All old code has been removed to make it easier to read, however the original co
 The GraphQL server can be accessed through `localhost:3001/graphql`
 
 ## Documentation
+
+![Screenshot of the Book Search Engine. No results are shown.](./assets/booksearchss.png)
